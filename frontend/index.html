@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrashIoT Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        🗑️ <span>TrashIoT</span>
+    </div>
+
+    <ul>
+        <li class="active">🏠 Dashboard</li>
+        <li>📍 Lokasi</li>
+        <li>🗑️ Tempat Sampah</li>
+        <li>📈 Riwayat</li>
+        <li>⚙️ Pengaturan</li>
+    </ul>
+        
+    </div>
+
+</div>
+
+<div class="main-content">
+
+    <div class="topbar">
+        <div>
+            <h1>Monitoring Tempat Sampah IoT</h1>
+            <p>Monitoring realtime berbasis ESP32</p>
+        </div>
+
+        <div class="admin-box">
+            👨‍💻 Admin
+        </div>
+    </div>
+
+    <div class="cards">
+
+        <div class="small-card blue">
+            <h3>Total Tempat Sampah</h3>
+            <h1>1</h1>
+            <p>Unit Terpasang</p>
+        </div>
+
+        <div class="small-card green">
+            <h3>Rata-rata Kapasitas</h3>
+            <h1 id="avgData">0%</h1>
+            <p>Status Realtime</p>
+        </div>
+
+        <div class="small-card orange">
+            <h3>Tempat Sampah Penuh</h3>
+            <h1 id="fullCount">0</h1>
+            <p>Perlu Pengosongan</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-grid">
+
+        <div class="monitor-card">
+
+            <div class="monitor-header">
+                <div>
+                    <h2>Tempat Sampah #01</h2>
+                    <p>📍 Politeknik Negeri Padang</p>
+                </div>
+
+                <div class="live-status">
+                    🟢 Live
+                </div>
+            </div>
+
+            <div class="gauge-box">
+
+                <div class="circle">
+                    <div class="circle-inner">
+                        <h1 id="persen">0%</h1>
+                        <span id="statusText">Kosong</span>
+                    </div>
+                </div>
+
+                <div class="trash-info">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3096/3096673.png" alt="trash">
+                </div>
+
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div class="alert-box">
+                ⚠️ Sistem monitoring kapasitas tempat sampah realtime aktif
+            </div>
+
+        </div>
+
+        <div class="activity-card">
+
+            <h2>Aktivitas Sistem</h2>
+
+            <div class="activity-item red">
+                🔴 Tempat sampah hampir penuh
+            </div>
+
+            <div class="activity-item yellow">
+                🟡 Sensor ultrasonik aktif
+            </div>
+
+            <div class="activity-item green">
+                🟢 ESP32 terhubung realtime
+            </div>
+
+            <div class="iot-image-box">
+
+                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048941.png" alt="iot trash">
+
+                <div class="iot-glow"></div>
+
+            </div>
+
+            <div class="iot-description">
+                Sistem monitoring tempat sampah pintar berbasis Internet of Things menggunakan ESP32 dan sensor ultrasonik untuk memantau kapasitas sampah secara realtime.
+            </div>
+
+        </div>
+
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
