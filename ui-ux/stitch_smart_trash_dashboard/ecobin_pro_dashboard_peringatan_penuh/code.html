@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-surface-variant": "#3c4a42",
+                        "secondary-container": "#d6e0f4",
+                        "surface": "#f8f9fa",
+                        "secondary": "#555f70",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "surface-tint": "#006c49",
+                        "inverse-primary": "#4edea3",
+                        "tertiary-container": "#9699ff",
+                        "background": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bdc7db",
+                        "tertiary-fixed": "#e1e0ff",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-variant": "#e1e3e4",
+                        "outline": "#6c7a71",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-fixed-variant": "#3d4757",
+                        "outline-variant": "#bbcabf",
+                        "on-tertiary-fixed": "#07006c",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed": "#6ffbbe",
+                        "on-primary-fixed": "#002113",
+                        "on-secondary-fixed": "#121c2a",
+                        "primary": "#006c49",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#10b981",
+                        "on-error": "#ffffff",
+                        "tertiary": "#494bd6",
+                        "on-surface": "#191c1d",
+                        "on-secondary-container": "#596374",
+                        "on-primary-container": "#00422b",
+                        "secondary-fixed": "#d9e3f7",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-container": "#1d17b2",
+                        "on-background": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#2f2ebe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "card-padding": "24px",
+                        "container-margin": "24px",
+                        "gutter": "16px",
+                        "section-gap": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-low flex flex-col p-4 border-r border-outline-variant z-50">
+<div class="mb-10 px-3">
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">EcoBin Pro</h1>
+<p class="text-on-surface-variant font-label-sm opacity-70">Waste Logistics Control</p>
+</div>
+<nav class="flex-grow space-y-2">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-xl p-3 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant p-3 hover:bg-surface-variant rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="font-body-md group-hover:text-on-surface transition-colors">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant p-3 hover:bg-surface-variant rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+<span class="font-body-md group-hover:text-on-surface transition-colors">Device Settings</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant p-3 hover:bg-surface-variant rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span class="font-body-md group-hover:text-on-surface transition-colors">Notifications</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-4">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-xl font-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add New Device
+            </button>
+<div class="flex items-center gap-3 px-2">
+<img alt="Avatar" class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" data-alt="A professional portrait of a municipal waste management operator in a bright, modern office setting. The individual is smiling slightly, wearing a high-visibility professional uniform with a subtle green accent. The lighting is soft and natural, emphasizing a high-precision, tech-forward work environment with clean glass surfaces in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAouvrVj_2y8Enf0xt4qZ-8fTh_2P-5pf2t2hJmxck0XwS7Vf4aRwrQmkn9TPwSDq3TZqy0j5bUaNbu1OontynUTE7_aaiuRI-PJA5UHzuvmPO9NfAq3eJHmFUrT8uQNtKa8XsEn0a5jH15Q7Fx2rGno0eKLJ9GkgmdzxxDh0dS4OPotEnjKiilM0O94TqP3vjwRzi_zTCoHNdpp0bdUIciDs6Qer6AqmSyHIlJfkAwbaMZec8Nezsbfw1-mm-IdGkTgxd99ZPafutq"/>
+<div>
+<p class="font-label-md text-on-surface leading-none">Petugas Logistik</p>
+<p class="text-xs text-on-surface-variant mt-1">ID: #409221</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center px-container-margin h-16 w-full bg-surface-container-low sticky top-0 z-40 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="bg-surface rounded-full py-2 pl-10 pr-4 border-none ring-1 ring-outline-variant focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Cari perangkat..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="calendar_today">calendar_today</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<div class="p-container-margin space-y-section-gap">
+<!-- Dashboard Title Section -->
+<div class="bg-error-container text-on-error-container p-4 rounded-xl flex items-center justify-between border border-error/20 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="bg-error text-on-error p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<p class="font-label-sm font-bold uppercase tracking-wider">Peringatan Mendesak</p>
+<p class="font-body-md">Kapasitas Hampir Penuh (95%) di Sektor 4, Blok C10</p>
+</div>
+</div>
+<button class="bg-error text-on-error px-6 py-2 rounded-lg font-label-md hover:bg-opacity-90 transition-all shadow-sm active:scale-95">
+    Panggil Penjemputan
+  </button>
+</div><section class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Dashboard Operasional</h2>
+<p class="text-on-surface-variant font-body-md">Ringkasan status infrastruktur EcoBin Pro saat ini.</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-on-primary-container"></span>
+                        Sistem Online
+                    </span>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- 1. Current Capacity Section -->
+<div class="col-span-12 lg:col-span-5 glass-card rounded-xl p-card-padding shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Kapasitas Saat Ini</h3>
+<div class="flex flex-col items-center justify-center relative py-4">
+<!-- Gauge Chart SVG -->
+<svg class="w-64 h-64 -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="40" stroke="#edeeef" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="none" r="40" stroke="#006c49" stroke-dasharray="251.2" stroke-dashoffset="87.92" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center rotate-0">
+<span class="font-headline-xl text-headline-xl text-primary leading-none">65%</span>
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider mt-2">Penuh</span>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-8 w-full border-t border-outline-variant pt-6">
+<div class="text-center">
+<p class="text-xs text-outline font-label-sm uppercase mb-1">Volume Terisi</p>
+<p class="font-headline-md text-on-surface">845 L</p>
+</div>
+<div class="text-center">
+<p class="text-xs text-outline font-label-sm uppercase mb-1">Sisa Ruang</p>
+<p class="font-headline-md text-on-surface">455 L</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Waste Statistics Section -->
+<div class="col-span-12 lg:col-span-7 glass-card rounded-xl p-card-padding shadow-[0px_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Statistik Sampah</h3>
+<p class="text-on-surface-variant font-label-sm">Total volume dalam 7 hari terakhir</p>
+</div>
+<select class="bg-surface border-outline-variant rounded-lg font-label-sm text-on-surface-variant focus:ring-primary">
+<option>7 Hari Terakhir</option>
+<option>30 Hari Terakhir</option>
+</select>
+</div>
+<div class="h-64 flex items-end justify-between gap-3 px-2">
+<!-- Bar Chart Representation -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary-container opacity-40 rounded-t-lg" style="height: 40%"></div>
+<span class="font-label-sm text-outline mt-3">Sen</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary-container opacity-50 rounded-t-lg" style="height: 55%"></div>
+<span class="font-label-sm text-outline mt-3">Sel</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary-container opacity-70 rounded-t-lg" style="height: 85%"></div>
+<span class="font-label-sm text-outline mt-3">Rab</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary rounded-t-lg" style="height: 65%"></div>
+<span class="font-label-sm text-on-surface font-bold mt-3">Kam</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary-container opacity-60 rounded-t-lg" style="height: 45%"></div>
+<span class="font-label-sm text-outline mt-3">Jum</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary-container opacity-30 rounded-t-lg" style="height: 25%"></div>
+<span class="font-label-sm text-outline mt-3">Sab</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary-container opacity-20 rounded-t-lg" style="height: 15%"></div>
+<span class="font-label-sm text-outline mt-3">Min</span>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-between p-4 bg-surface-container rounded-xl border border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<p class="text-xs text-outline font-label-sm">Prediksi Penjemputan</p>
+<p class="font-body-md font-bold text-on-surface">Besok, 09:00 WIB</p>
+</div>
+</div>
+<button class="text-primary font-label-md hover:underline">Lihat Rincian</button>
+</div>
+</div>
+<!-- 3. Bin Status Overview Grid -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Battery Card -->
+<div class="glass-card rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-emerald-50 rounded-lg">
+<span class="material-symbols-outlined text-emerald-600" data-icon="battery_charging_full">battery_charging_full</span>
+</div>
+<span class="text-xs font-label-md text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">Stabil</span>
+</div>
+<p class="text-outline font-label-sm uppercase mb-1">Baterai Perangkat</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">85%</h4>
+<div class="w-full bg-surface-variant h-1.5 rounded-full mt-4 overflow-hidden">
+<div class="bg-emerald-500 h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+<!-- Temperature Card -->
+<div class="glass-card rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-amber-50 rounded-lg">
+<span class="material-symbols-outlined text-amber-600" data-icon="thermostat">thermostat</span>
+</div>
+<span class="text-xs font-label-md text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Normal</span>
+</div>
+<p class="text-outline font-label-sm uppercase mb-1">Suhu Internal</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">28°C</h4>
+<p class="text-xs text-on-surface-variant mt-4">+2°C dari rata-rata harian</p>
+</div>
+<!-- Last Pickup Card -->
+<div class="glass-card rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+</div>
+</div>
+<p class="text-outline font-label-sm uppercase mb-1">Penjemputan Terakhir</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">2 Hari Lalu</h4>
+<p class="text-xs text-on-surface-variant mt-4">Pukul 14:30 oleh Kurir #02</p>
+</div>
+<!-- Maintenance Card -->
+<div class="glass-card rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-50 rounded-lg">
+<span class="material-symbols-outlined text-blue-600" data-icon="verified">verified</span>
+</div>
+<span class="text-xs font-label-md text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">Sehat</span>
+</div>
+<p class="text-outline font-label-sm uppercase mb-1">Kesehatan Sistem</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">Optimal</h4>
+<div class="flex items-center gap-2 mt-4 text-emerald-600 font-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Semua sensor berfungsi
+                        </div>
+</div>
+</div>
+<!-- Footer Section / Map Mini View -->
+<div class="col-span-12 glass-card rounded-xl overflow-hidden relative min-h-[300px]">
+<div class="absolute inset-0 bg-surface-container-high">
+<img class="w-full h-full object-cover opacity-60 grayscale" data-alt="A stylized, clean aerial map view of an urban municipal district with emerald green marker pins indicating the location of smart waste bins. The map is designed in a modern tech-interface style with soft gray tones and clear street outlines. The lighting suggests a bright, daytime setting, and the overall aesthetic is one of organized city planning and smart infrastructure management." data-location="Jakarta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASRSHYiEjsBUOGuRgbjkji09d4JJ1QEgSe_PKEwDYq5gWniN_mjAQ8M-oA4YpcwH1Hv3ePw3DwNQ06pmxZ21But1SDNTf3k4W0a1d9vb9V7kgc5-DYjmwbC2XRkg0UDnjkrUNvYZyYxwj2uCy658tS50ONOsgxQamug_da4KQeSSIUrsqSRDuSeKmEHsmQ934Cd4gnKfJTVh411oUH7hPnnRoo19mzNKNblM6clIIQU69WJ4lQ6iDyhjhvahxJdT7qZ49qk_AKfmAI"/>
+</div>
+<div class="absolute top-6 left-6 p-6 glass-card rounded-xl max-w-xs shadow-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Lokasi Perangkat</h3>
+<p class="text-on-surface-variant font-body-md mb-4">Area Sektor 4, Blok C10 - Jakarta Selatan</p>
+<button class="w-full bg-on-surface text-surface py-3 rounded-xl font-label-md hover:bg-opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                            Buka di Peta Besar
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
