@@ -1,1 +1,95 @@
+Projek-IoT
+Projek Kapasitas Tempat Sampah Berbasis ESP32
+Deskripsi Sistem
 
+Projek ini merupakan sistem monitoring kapasitas tempat sampah berbasis Internet of Things (IoT) menggunakan mikrokontroler ESP32. Sistem bekerja dengan mendeteksi tingkat kepenuhan tempat sampah menggunakan sensor ultrasonik, kemudian menampilkan hasil pengukuran pada LCD serta mengirimkan data ke platform monitoring secara real-time melalui internet.
+1. ESP32
+
+ESP32 berfungsi sebagai pusat kendali utama pada sistem. Mikrokontroler ini bertugas untuk:
+
+Membaca data dari sensor ultrasonik HC-SR04
+Mengolah data jarak menjadi persentase kapasitas tempat sampah
+Menampilkan informasi ke LCD
+Mengaktifkan buzzer ketika kapasitas penuh
+Mengirim data monitoring melalui koneksi internet
+
+ESP32 dipilih karena sudah memiliki fitur WiFi internal sehingga sangat cocok digunakan pada proyek IoT.
+
+2. Sensor Ultrasonik HC-SR04
+
+Sensor HC-SR04 digunakan untuk mengukur jarak antara sensor dengan permukaan sampah di dalam tempat sampah.
+
+Cara Kerja Sensor
+
+Sensor akan memancarkan gelombang ultrasonik melalui pin Trigger (TRIG), kemudian gelombang akan dipantulkan kembali dan diterima oleh pin Echo (ECHO). Dari waktu pantulan tersebut, ESP32 menghitung jarak permukaan sampah.
+
+Fungsi Sensor
+Mengukur tinggi sampah
+Menentukan tingkat kepenuhan tempat sampah
+Mengirim data jarak ke ESP32
+Koneksi Sensor ke ESP32
+VCC → 5V/VIN ESP32
+GND → GND ESP32
+TRIG → GPIO ESP32
+ECHO → GPIO ESP32 melalui resistor
+
+Resistor digunakan sebagai pembatas tegangan agar pin ESP32 tetap aman karena ESP32 bekerja pada logika 3.3V.
+
+3. LCD I2C Display
+
+LCD digunakan untuk menampilkan informasi kapasitas tempat sampah secara langsung.
+
+Informasi yang Ditampilkan
+Persentase kapasitas sampah
+Status kondisi tempat sampah
+Kosong
+Setengah penuh
+Penuh
+Koneksi LCD I2C
+GND → GND ESP32
+VCC → 5V ESP32
+SDA → Pin SDA ESP32
+SCL → Pin SCL ESP32
+
+Penggunaan modul I2C membuat jumlah kabel lebih sedikit dan mempermudah proses pemasangan.
+
+4. Buzzer
+
+Buzzer digunakan sebagai indikator suara ketika tempat sampah sudah hampir penuh atau penuh.
+
+Fungsi Buzzer
+Memberikan notifikasi suara
+Menjadi alarm peringatan kapasitas penuh
+Koneksi Buzzer
+Positif (+) → GPIO ESP32
+Negatif (-) → GND ESP32
+Cara Kerja Sistem
+Sensor ultrasonik membaca jarak antara sensor dan permukaan sampah.
+Data jarak dikirim ke ESP32.
+ESP32 menghitung kapasitas tempat sampah berdasarkan tinggi tong sampah.
+Hasil kapasitas ditampilkan pada LCD.
+Jika kapasitas mencapai batas tertentu, buzzer akan aktif.
+Data monitoring dikirim melalui internet ke platform IoT.
+Pengguna dapat memantau kondisi tempat sampah secara real-time dari jarak jauh.
+Komponen yang Digunakan
+No	Komponen	Fungsi
+1	ESP32	Mikrokontroler utama
+2	HC-SR04	Sensor jarak ultrasonik
+3	LCD I2C 16x2	Menampilkan informasi
+4	Buzzer	Alarm indikator
+5	Resistor	Pembatas tegangan
+6	Kabel Jumper	Penghubung rangkaian
+7	Power Supply	Sumber daya sistem
+Tujuan dan Manfaat
+
+Proyek monitoring tempat sampah ini dibuat untuk:
+
+Meningkatkan efisiensi pengelolaan sampah
+Mengurangi keterlambatan pengangkutan sampah
+Mempermudah proses monitoring kapasitas tempat sampah
+Memberikan notifikasi otomatis ketika sampah penuh
+Mendukung implementasi Smart City berbasis IoT
+Membantu menciptakan lingkungan yang lebih bersih dan modern
+Kesimpulan
+
+Sistem kapasitas tempat sampah berbasis ESP32 ini mampu melakukan monitoring kondisi tempat sampah secara otomatis dan real-time. Dengan memanfaatkan sensor ultrasonik, LCD, dan koneksi internet, pengguna dapat mengetahui kapasitas tempat sampah dengan lebih mudah, cepat, dan efisien.
