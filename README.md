@@ -47,5 +47,4 @@ Backend > API and database
 Frontend > dashboard website
 UI/UX > Figma and design
 docs > flowchart and dokumentasi
-Sekian Terimakasih
 
